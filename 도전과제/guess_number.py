@@ -9,7 +9,7 @@ def compare_numbers(target, guess):
     else:
         return '정답입니다!'
 
-def main():
+def play_game():
     target_number = random.randint(1, 10)
     print("행운의 랜덤 숫자를 맞혀보세요! 랜덤 숫자는 1 이상 10 이하입니다.")
     
@@ -20,6 +20,24 @@ def main():
         
         # 정답인 경우 반복문 탈출
         if '정답' in result:
+            break
+
+def main():
+    restart = 'y'
+    while True:
+        play_game()
+        
+        while True:
+            restart = input('게임을 다시 하시겠습니까? (y/n): ').lower()
+            
+            # 올바른 입력을 받도록 조건 작성
+            if restart == 'y' or restart == 'n':
+                break
+            else:
+                print('잘못된 입력입니다.')
+
+        if restart == 'n':
+            print('게임을 종료합니다.')
             break
 
 if __name__ == "__main__":
