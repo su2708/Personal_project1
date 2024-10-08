@@ -14,7 +14,15 @@ def play_game():
     print("행운의 랜덤 숫자를 맞혀보세요! 랜덤 숫자는 1 이상 10 이하입니다.")
     
     while True:
-        guess_number = int(input('예상 숫자: '))
+        while True:
+            guess_number = int(input('예상 숫자: '))
+            
+            # 사용자의 입력값을 1~10 범위로 제한
+            if guess_number < 1 or guess_number > 10:
+                print('잘못된 입력입니다. 1 이상 10 이하의 수를 입력하세요.')
+            else:
+                break
+            
         result = compare_numbers(target_number, guess_number)
         print(result)
         
